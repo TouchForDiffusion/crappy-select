@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="index.js"></script>
+  <style>
+  .tag-selector {
+    width: 100%;
+  }
+  </style>
+</head>
+<body>
+  <div id="container" style="width: 50%"></div>
+  <button id="toggle">disable</button>
+  <script>
+    var tagSelector = new TagSelector({
+        // french translation
+        i18n: {
+            "tag.add": "search tags"
+          , "tag.create": "créé un nouveau tag"
+          , "tag.add.button": "ajouter"
+          , "no.exact.match": "pas de résultat pour <strong>{{value}}</strong>, <br> voulez-vous le créer?"
+        }
+      , allowCreate: true
+      , itemMinLength: 3
+      , datas: []
+      , tagToShow: 5
+        
+      , template: function(args) {
+          return "<div class='tag-selector-list tag-selector-holder " + args["hideOnMobile"] + "'>" +
+
+                    "<div class='tag-selector-input-holder'>" +
+                      "<input type='text' class='tag-selector-select-input' placeholder='" + args["tag.add"] + "'>" +
+                    "</div>" +
+
+                    "<div class='tag-selector-selected'></div>" +
+
+                    "<div class='tag-selector-selected-more'>" +
+                      "<div class='tag-selector-more-counter'></div>" +
+                      "<div class='tag-selector-more-tags'></div>" +
+                      "<div class='tag-selector-more-hide'>" + args["less.tags"] + "</div>" +
+                    "</div>" +
+                    
+                    "<button class='tag-selector-suggestion-toggle'></button>" +
+
+                  "</div>" +
+
+                  "<div class='tag-selector-list tag-selector-dropdown'></ul>" +
+                    "<ul class='tag-selector-suggestion'></ul>" +
+                    "<div class='tag-selector-no-exact-match hide'>" +
+                      "<div class='message'></div>" +
+                      "<button class='tag-selector-no-exact-match-button'>" + args["tag.add.button"] + "</button>" +
+                    "</div>" +
+                  "</div>" +
+
+                  "<div class='tag-selector-add-new " + args["hideOnDesktop"] + "'>" +
+                    "<input type='text' class='tag-selector-add-new-input' placeholder='" + args["tag.create"] + "'>" +
+                    "<button class='tag-selector-add-new-validate'>" + args["tag.add.button"] + "</button>" +
+                  "</div>" +
+                  
+                "</div>"
+        }
+        
+        
+      , onCreate: function(item) {
+          console.log("item " + item.text + " created")
+        }
+      , onAdd: function(item) { 
+          console.log("item " + item.text + " added")
+        }
+      , onRemove: function(item) {
+          console.log("item " + item.text + " removed")
+        }
+    })
+
+    for (var i = 20 - 1; i >= 0; i--) {
+      tagSelector.addItem({
+          value: i
+        , text: "item " + (i+1)
+        , selected: (Math.random() < 0.5)
+      }, false)
+    };
+
+    var toggleButton = document.body.querySelector("#toggle")
+    toggleButton.addEventListener("click", function disableEnableTagSelector(evt) {
+      if (tagSelector.widget.classList.contains("disabled")) {
+        tagSelector.enable()
+        toggleButton.innerHTML = "disable"
+      } 
+      else {
+        tagSelector.disable()
+        toggleButton.innerHTML = "enable"
+      }
+    })
+    document.body.querySelector("#container").appendChild(tagSelector.el)
+    document.body.querySelector("#container").appendChild(tagSelector.widget)
+  </script>
+
+</body>
+</html>

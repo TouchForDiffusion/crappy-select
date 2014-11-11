@@ -1,0 +1,268 @@
+@tagSelectorEdges: #CCC;
+@tagSelectorBackground: #FFF;
+@tagSelectorBackgroundHover: #E5E5E5;
+
+div.tag-selector {
+    position: relative;
+    display: inline-block;
+    font-size: 1rem;
+    user-select: none;
+    
+    .hide {
+        display: none;
+    }
+
+    input {
+        font-size: 1rem;
+        margin-top: 4px;
+        vertical-align: top;
+    }
+
+    button {
+        outline: none;
+        border: 1px solid @tagSelectorEdges;
+        background: @tagSelectorBackground;
+        cursor: pointer;
+    }
+
+    div.tag-selector-holder {
+        border: 1px solid @tagSelectorEdges;
+        background: @tagSelectorBackground;
+        position: relative;
+        min-width: 350px;
+        cursor: text;
+        padding-right: 27px
+        ;
+
+        div.tag-selector-selected,
+        div.tag-selector-selected-more {
+
+            list-style: none;
+            padding:0;
+            margin:0;
+            display: inline;
+            cursor: default;
+
+            div.tag-selector-selected-item {
+                background: #F8F8F8;
+                display: inline-block;
+                border: 1px solid @tagSelectorEdges;
+                border-radius: 4px;
+                padding: 3px 0 3px 6px;
+                margin: 4px 0 4px 4px;
+                
+                button {
+                    border: none;
+                    padding:0 4px;
+                    vertical-align: top;
+                    background: transparent;
+                }
+            }
+
+            div.tag-selector-more-tags {
+                display: inline;
+            }
+
+            div.tag-selector-more-counter,
+            div.tag-selector-more-hide {
+                color: #555;
+                display: inline-block;
+                padding: 3px 0 3px 6px;
+                margin: 4px;
+                text-decoration: underline;
+                cursor: pointer;
+                vertical-align: top;
+            }
+        }
+
+
+        .tag-selector-input-holder {
+
+            display: inline;
+            position: relative;
+
+            .tag-selector-counter {
+                display: inline-block;
+                border: 1px solid #cccccc;
+                padding: 0 4px 0 4px;
+                margin: 2px 0 2px 2px;
+            }
+
+            input.tag-selector-select-input {
+                border: none;
+                display: inline;
+                outline: none;
+                padding: 5px 5px 5px 2px;
+                width: 150px;
+                font-size: 0.9rem;
+                height: auto;
+            }
+
+        }
+
+        
+    }
+
+
+    // Custom theme
+    div.tag-selector-list.tag-selector-holder {
+        padding-right: 0!important;
+        border-bottom: none;
+
+        div.tag-selector-input-holder {
+            display: block;
+            border-bottom: 1px solid #CCC;
+        }
+
+        div.tag-selector-selected,
+        div.tag-selector-selected-more {
+
+            display:block;
+
+            div.tag-selector-selected-item {
+                display: block;
+                margin: 0;
+                border: none;
+                border-radius: 0;
+                border-bottom: 1px solid #CCC;
+                button {
+                    float: right
+                }
+            }
+
+            div.tag-selector-more-counter,
+            div.tag-selector-more-hide {
+                display: block;
+                margin:0;
+                border-bottom: 1px solid #CCC;
+            }
+        }
+
+        button.tag-selector-suggestion-toggle {
+            bottom: inherit;
+            height:33px;
+
+        }
+    }
+
+    button.tag-selector-suggestion-toggle {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        padding: 0 10px;
+        margin:0;
+        border: none;
+        font-family: monospace;
+        border-left: 1px solid @tagSelectorEdges;
+        background: @tagSelectorBackground;
+
+        &::before {
+            content: "+";
+        }
+
+        &.open::before {
+            content: "-";
+        }
+
+        &:hover {
+            background: @tagSelectorBackgroundHover;
+        }
+    }
+
+    div.tag-selector-dropdown {
+        position: absolute;
+        left:0;
+        right: 0;
+        border: 1px solid @tagSelectorEdges;
+        border-bottom: none;
+        border-top: none;
+        z-index: 2;
+    }
+
+    div.tag-selector-dropdown.tag-selector-list {
+        top: 33px;
+        ul.tag-selector-suggestion {
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2)
+        }
+    }
+
+    ul.tag-selector-suggestion {
+
+        list-style: none;
+        padding:0;
+        margin:0;
+        background: @tagSelectorBackground;
+        border-bottom: 1px solid @tagSelectorEdges;
+        max-height: 250px;
+        overflow: auto;
+        display: none;
+
+        &.show {
+            display: block;
+        }
+
+        li {
+            border-bottom: 1px solid @tagSelectorEdges;
+            padding: 4px;
+            background: #FFF;
+
+            &:hover {
+                cursor: pointer;
+                background: @tagSelectorBackgroundHover;
+            }
+
+             &:last-child{
+                border-bottom: none;
+            }
+        }
+    }
+
+    div.tag-selector-no-exact-match {
+        background: @tagSelectorBackgroundHover;
+        padding: 4px;
+        color: #444;
+        position: relative;
+
+        button.tag-selector-no-exact-match-button {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            bottom: 2px;
+        }
+    }
+}
+
+div.tag-selector.disabled {
+    input {
+        display: none!important;
+    }
+    div.tag-selector-holder {
+        background: #F8F8F8;
+    }
+    button.tag-selector-suggestion-toggle {
+        cursor: default;
+        background: #F8F8F8;
+        &::before {
+            content: " ";
+        }
+        &.open::before {
+            content: " ";
+        }
+        &:hover {
+            background: #F8F8F8;
+        }
+    }
+    div.tag-selector-holder {
+        div.tag-selector-selected,
+        div.tag-selector-selected-more {
+            div.tag-selector-selected-item {
+                padding-right: 6px;
+                button {
+                    display: none;
+                }
+            }
+        }
+    }
+}

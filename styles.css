@@ -1,0 +1,229 @@
+div.tag-selector {
+  position: relative;
+  display: inline-block;
+  font-size: 1rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+div.tag-selector .hide {
+  display: none;
+}
+div.tag-selector input {
+  font-size: 1rem;
+  margin-top: 4px;
+  vertical-align: top;
+}
+div.tag-selector button {
+  outline: none;
+  border: 1px solid #cccccc;
+  background: #ffffff;
+  cursor: pointer;
+}
+div.tag-selector div.tag-selector-holder {
+  border: 1px solid #cccccc;
+  background: #ffffff;
+  position: relative;
+  min-width: 350px;
+  cursor: text;
+  padding-right: 27px
+        ;
+}
+div.tag-selector div.tag-selector-holder div.tag-selector-selected,
+div.tag-selector div.tag-selector-holder div.tag-selector-selected-more {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline;
+  cursor: default;
+}
+div.tag-selector div.tag-selector-holder div.tag-selector-selected div.tag-selector-selected-item,
+div.tag-selector div.tag-selector-holder div.tag-selector-selected-more div.tag-selector-selected-item {
+  background: #F8F8F8;
+  display: inline-block;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 3px 0 3px 6px;
+  margin: 4px 0 4px 4px;
+}
+div.tag-selector div.tag-selector-holder div.tag-selector-selected div.tag-selector-selected-item button,
+div.tag-selector div.tag-selector-holder div.tag-selector-selected-more div.tag-selector-selected-item button {
+  border: none;
+  padding: 0 4px;
+  vertical-align: top;
+  background: transparent;
+}
+div.tag-selector div.tag-selector-holder div.tag-selector-selected div.tag-selector-more-tags,
+div.tag-selector div.tag-selector-holder div.tag-selector-selected-more div.tag-selector-more-tags {
+  display: inline;
+}
+div.tag-selector div.tag-selector-holder div.tag-selector-selected div.tag-selector-more-counter,
+div.tag-selector div.tag-selector-holder div.tag-selector-selected-more div.tag-selector-more-counter,
+div.tag-selector div.tag-selector-holder div.tag-selector-selected div.tag-selector-more-hide,
+div.tag-selector div.tag-selector-holder div.tag-selector-selected-more div.tag-selector-more-hide {
+  color: #555;
+  display: inline-block;
+  padding: 3px 0 3px 6px;
+  margin: 4px;
+  text-decoration: underline;
+  cursor: pointer;
+  vertical-align: top;
+}
+div.tag-selector div.tag-selector-holder .tag-selector-input-holder {
+  display: inline;
+  position: relative;
+}
+div.tag-selector div.tag-selector-holder .tag-selector-input-holder .tag-selector-counter {
+  display: inline-block;
+  border: 1px solid #cccccc;
+  padding: 0 4px 0 4px;
+  margin: 2px 0 2px 2px;
+}
+div.tag-selector div.tag-selector-holder .tag-selector-input-holder input.tag-selector-select-input {
+  border: none;
+  display: inline;
+  outline: none;
+  padding: 5px 5px 5px 2px;
+  width: 150px;
+  font-size: 0.9rem;
+  height: auto;
+}
+div.tag-selector div.tag-selector-list.tag-selector-holder {
+  padding-right: 0!important;
+  border-bottom: none;
+}
+div.tag-selector div.tag-selector-list.tag-selector-holder div.tag-selector-input-holder {
+  display: block;
+  border-bottom: 1px solid #CCC;
+}
+div.tag-selector div.tag-selector-list.tag-selector-holder div.tag-selector-selected,
+div.tag-selector div.tag-selector-list.tag-selector-holder div.tag-selector-selected-more {
+  display: block;
+}
+div.tag-selector div.tag-selector-list.tag-selector-holder div.tag-selector-selected div.tag-selector-selected-item,
+div.tag-selector div.tag-selector-list.tag-selector-holder div.tag-selector-selected-more div.tag-selector-selected-item {
+  display: block;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #CCC;
+}
+div.tag-selector div.tag-selector-list.tag-selector-holder div.tag-selector-selected div.tag-selector-selected-item button,
+div.tag-selector div.tag-selector-list.tag-selector-holder div.tag-selector-selected-more div.tag-selector-selected-item button {
+  float: right;
+}
+div.tag-selector div.tag-selector-list.tag-selector-holder div.tag-selector-selected div.tag-selector-more-counter,
+div.tag-selector div.tag-selector-list.tag-selector-holder div.tag-selector-selected-more div.tag-selector-more-counter,
+div.tag-selector div.tag-selector-list.tag-selector-holder div.tag-selector-selected div.tag-selector-more-hide,
+div.tag-selector div.tag-selector-list.tag-selector-holder div.tag-selector-selected-more div.tag-selector-more-hide {
+  display: block;
+  margin: 0;
+  border-bottom: 1px solid #CCC;
+}
+div.tag-selector div.tag-selector-list.tag-selector-holder button.tag-selector-suggestion-toggle {
+  bottom: inherit;
+  height: 33px;
+}
+div.tag-selector button.tag-selector-suggestion-toggle {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 10px;
+  margin: 0;
+  border: none;
+  font-family: monospace;
+  border-left: 1px solid #cccccc;
+  background: #ffffff;
+}
+div.tag-selector button.tag-selector-suggestion-toggle::before {
+  content: "+";
+}
+div.tag-selector button.tag-selector-suggestion-toggle.open::before {
+  content: "-";
+}
+div.tag-selector button.tag-selector-suggestion-toggle:hover {
+  background: #e5e5e5;
+}
+div.tag-selector div.tag-selector-dropdown {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border: 1px solid #cccccc;
+  border-bottom: none;
+  border-top: none;
+  z-index: 2;
+}
+div.tag-selector div.tag-selector-dropdown.tag-selector-list {
+  top: 33px;
+}
+div.tag-selector div.tag-selector-dropdown.tag-selector-list ul.tag-selector-suggestion {
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+div.tag-selector ul.tag-selector-suggestion {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: #ffffff;
+  border-bottom: 1px solid #cccccc;
+  max-height: 250px;
+  overflow: auto;
+  display: none;
+}
+div.tag-selector ul.tag-selector-suggestion.show {
+  display: block;
+}
+div.tag-selector ul.tag-selector-suggestion li {
+  border-bottom: 1px solid #cccccc;
+  padding: 4px;
+  background: #FFF;
+}
+div.tag-selector ul.tag-selector-suggestion li:hover {
+  cursor: pointer;
+  background: #e5e5e5;
+}
+div.tag-selector ul.tag-selector-suggestion li:last-child {
+  border-bottom: none;
+}
+div.tag-selector div.tag-selector-no-exact-match {
+  background: #e5e5e5;
+  padding: 4px;
+  color: #444;
+  position: relative;
+}
+div.tag-selector div.tag-selector-no-exact-match button.tag-selector-no-exact-match-button {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+}
+div.tag-selector.disabled input {
+  display: none!important;
+}
+div.tag-selector.disabled div.tag-selector-holder {
+  background: #F8F8F8;
+}
+div.tag-selector.disabled button.tag-selector-suggestion-toggle {
+  cursor: default;
+  background: #F8F8F8;
+}
+div.tag-selector.disabled button.tag-selector-suggestion-toggle::before {
+  content: " ";
+}
+div.tag-selector.disabled button.tag-selector-suggestion-toggle.open::before {
+  content: " ";
+}
+div.tag-selector.disabled button.tag-selector-suggestion-toggle:hover {
+  background: #F8F8F8;
+}
+div.tag-selector.disabled div.tag-selector-holder div.tag-selector-selected div.tag-selector-selected-item,
+div.tag-selector.disabled div.tag-selector-holder div.tag-selector-selected-more div.tag-selector-selected-item {
+  padding-right: 6px;
+}
+div.tag-selector.disabled div.tag-selector-holder div.tag-selector-selected div.tag-selector-selected-item button,
+div.tag-selector.disabled div.tag-selector-holder div.tag-selector-selected-more div.tag-selector-selected-item button {
+  display: none;
+}

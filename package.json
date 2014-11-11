@@ -1,0 +1,30 @@
+{
+  "name": "crappy-select",
+  "version": "0.1.1",
+  "description": "A HTMLSelectElement wrapper to ease the use of multi-select elements",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://youseemii.pro/crappy-select"
+  },
+  "keywords": [
+    "select",
+    "select multiple",
+    "chosen",
+    "tag",
+    "responsive"
+  ],
+  "author": "Guillem Canal <hello@guillem.me>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-less": "*",
+    "gulp-concat": "*",
+    "gulp-connect": "*",
+    "gulp-if": "*",
+    "gulp-autoprefixer": "*"
+  }
+}
